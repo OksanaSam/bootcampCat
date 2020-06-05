@@ -1,0 +1,27 @@
+@mixin colors ($background, $color) {
+  background-color: $background;
+  color: $color;
+}
+
+@mixin primaryFont ($fontSizeValue, $lineHeight) {
+    font-size: $fontSizeValue * 1px;
+    font-size: ($fontSizeValue/10) * 1rem;
+    line-height: $lineHeight;
+    font-weight: regular;
+    font-family: $primaryFontFamily;   
+}
+
+@mixin secondaryFont ($fontSizeValue, $lineHeight, $fontWeight)  {
+    font-size: $fontSizeValue * 1px;
+    font-size: ($fontSizeValue/10) * 1rem;
+    line-height: $lineHeight;
+    font-weight: $fontWeight;
+    font-family: $secondaryFontFamily;
+}
+
+@mixin flex ($flexFlow, $justifyContent, $alignItems) {
+    display: flex;
+    flex-flow: $flexFlow;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}

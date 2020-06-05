@@ -1,0 +1,128 @@
+/* stripping styles */
+body,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* wrapper styles */
+.wrapper {
+    max-width: 1600px;
+    width: 85%;
+    margin: 0 auto;
+}
+
+/* body styles */
+body {
+    color: $textColor;
+    font-family: $secondaryFontFamily;
+    font-size: 2rem;
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+
+body {
+    background-color: cadetblue;
+}
+.wrapper {
+    margin: 0 auto;
+    max-width: 1600px;
+    width: 85%;
+    padding: 50px;
+}
+
+header {
+	/* display: flex; */
+	/* background: cyan; */
+    color: black;
+    text-align: center;
+}
+
+.catImage {
+    width: 50%;
+}
+
+header h1 {
+	margin: auto;
+	text-transform: uppercase;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottomSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+footer {
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    background-color: cyan;
+}
+
+.messageBox {
+    width: 600px;
+    height: 200px;
+    border: 2px solid darkblue; 
+    text-align: center;
+    margin-top: 10px;
+    background-color: cyan;
+}
+
+/* button styles */
+button {
+    @include colors ($thirdColor, $secondaryColor);
+    @include primaryFont (25.4, 41.6px);
+    text-align: center;
+    display: inline-block;
+    border: none;
+        &:hover,
+        &:focus {
+            @include colors ($textColor, $primaryColor);
+        }
+}
+
+@media(max-width: 900px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@media(max-width: 768px) {
+    html {
+        font-size: 56.25%;
+    }
+
+    .wrapper {
+        width: 90%;
+    }
+}

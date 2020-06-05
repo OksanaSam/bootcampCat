@@ -1,0 +1,156 @@
+/* general header styles for all pages */
+header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 65vh;
+    padding-top: 4%;
+        nav ul {
+            @include flex(row no-wrap, flex-start, center);
+            letter-spacing: 1px;
+                a {
+                    padding: 15px;
+                    color: $textColor;
+                    @include secondaryFont (20, 29px, bold);
+                        &:hover,
+                        &:focus {
+                            color: $thirdColor;
+                            border-bottom: 2px solid $thirdColor;
+                            cursor: pointer;
+                    }
+                }
+        }
+}
+
+h1 {
+    @include primaryFont(121.2, 99.8px);
+}
+
+/* home page header styles */
+header.home {
+    background-image: url('../assets/home-header.jpg');
+    position: relative;
+}
+
+.header-picture {
+    display: flex;
+    position: absolute;
+    width: 92.5%;
+    right: 0;
+    bottom: -10vh;
+        h1 {
+            flex-grow: 0;
+            padding-right: 30px;
+            align-self: center;
+            flex-shrink: 0;
+            flex-basis: 50%;
+        }
+        img {
+            // width: 45%;
+            flex-grow: 2;
+            flex-shrink: 1;
+        }
+}
+
+/* nav styles */
+header .selected {
+        border-bottom: 2px solid $thirdColor;
+        &:hover {
+           cursor: default;
+           color: $textColor; 
+        }
+}
+
+header.home li:first-child a {
+    border-bottom: 2px solid $thirdColor;
+}
+
+header.blog li:nth-child(3) a {
+    border-bottom: 2px solid $thirdColor;
+}
+
+header.contact li:last-child a {
+    border-bottom: 2px solid $thirdColor;
+}
+
+header input[type="checkbox"] {
+	display: none;  /* hiding the input */
+}
+
+/* positioning the hamburger menu */
+header label[for="toggle"] {
+	display: none;
+    z-index: 10;
+    color: $textColor;
+    text-align: right;
+    font-size: 4.5rem;
+}
+
+@media(max-width: 900px) {
+    h1 {
+        @include primaryFont(110, 99.8px);
+    }
+}
+
+@media(max-width: 768px) {
+    .header-picture {
+        flex-direction: column;
+        position: relative;
+        padding-top: 8vh;
+        width: 70%;
+    }
+
+    h1 {
+        @include primaryFont(80, 85px);
+    }
+
+}
+
+@media(max-width: 480px) {
+    h1 {
+        @include primaryFont(50, 85px);
+    }
+
+    .header-picture {
+        bottom: -80px;
+        width: 100%;
+            h1 {
+                align-self: flex-start;
+                padding: 0 0 25px 30px;
+            }
+    }
+
+    /* positioning the hamburger menu for mobile */
+    header label[for="toggle"] {
+        display: block;
+        position: relative;
+    }
+
+    .top-ul {
+        position: absolute;
+        background-color: $secondaryColor;
+        flex-direction: column;
+        z-index: 10;
+        width: 40%;
+        right: -40%;
+        top: 12%;
+        transition: all 0.2s;
+        display: none;
+            li {
+                border-bottom: 1px solid $thirdColor;
+                text-align: center;
+                width: 100%;
+                padding: 20px;
+            }
+    }
+
+    input[type=checkbox]:checked + .top-ul {
+        right: 0;
+        display: block;
+    }
+
+    header.home img {
+        width: 100%;
+        top: 100%;
+    }
+}
+ 
