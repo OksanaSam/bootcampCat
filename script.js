@@ -82,31 +82,65 @@ myApp.updateTime = () => {
 }
 
 
+
+
 myApp.updateEnergy = () => {
     if (myApp.ticks % 5 === 0) {
         myApp.bootcampCat.energyLevel -= 10;
         myApp.bootcampCat.sleepLevel += 5;
     }
+    if (myApp.bootcampCat.energyLevel > 100) {
+        $('.energyNumber').addClass('updatedEnergy');
+    } else {
+        $('.energyNumber').removeClass('updatedEnergy');
+    }
     $('.energyNumber').html(`${myApp.bootcampCat.energyLevel}`);
-}
+};
+
+myApp.start = () => {
+    $('.startButton').on('click', function(){
+        $('.startSection').hide();
+        $('.gameSection').show();
+    })
+};
 
 myApp.reset = () => {
-    if (myApp.ticks % 5 === 0) {
-        myApp.bootcampCat.energyLevel -= 10;
-        myApp.bootcampCat.sleepLevel += 5;
-    }
-}
+    $('.resetButton').on('click', function(){
+        myApp.ticks = 0;
+        myApp.bootcampCat.energyLevel = 100;
+    })
+};
+
+myApp.userUpdate = () => {
+    $('button').on('click', function() {
+        myApp.bootcampCat.energyLevel += 10;
+        $('.energyNumber').html(`${myApp.bootcampCat.energyLevel}`);
+      });
+};
+
+myApp.keywords = ['ThreatenedSwan', 'calc(30 - 3)', 'orbitz', 'Marley', 'Riley', 'pineappleJuice', 'dank', 'survivor', 'cookies', 'gityourselvesabreak', 'sonOfJson', 'zoominplz', 'JS = magic', 'undefined', 'keepitdry', 'pizza+sushi',  'projectprojectproject', 'curlyboys', 'gridouttahere', 'gitoffyourlaptop', 'conCATenation', 'horizontaloverscroll', 'flexYESfloatNO'];
+
 
 
 myApp.update = () => {
     myApp.updateTicks();
     myApp.updateTime();
     myApp.updateEnergy();
-}
+};
+
+myApp.getRandomKeyword = () => {
+    //take a random item from the keywords array and display it
+    const randomKeyword = myApp.keywords[Math.floor(Math.random() * myApp.keywords.length)];
+    $('.keyword').text(`#${randomKeyword}`);
+};
 
 myApp.init = () => {
-    setInterval(myApp.update, 1000)
-    // setInterval(myApp.ticksIncrease, 1000);
+    myApp.start();
+    myApp.userUpdate();
+    setInterval(myApp.update, 1000);
+    myApp.reset();
+
+    setInterval(myApp.getRandomKeyword, 4000);
     // setInterval(myApp.getTime, 1000);
     // setInterval(myApp.update, 1000);
 };

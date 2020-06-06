@@ -26,51 +26,45 @@ img {
 
 /* wrapper styles */
 .wrapper {
-    max-width: 1600px;
-    width: 85%;
-    margin: 0 auto;
-}
-
-/* body styles */
-body {
-    color: $textColor;
-    font-family: $secondaryFontFamily;
-    font-size: 2rem;
-    min-width: 320px;
-    margin: 0 auto;
-}
-
-
-body {
-    background-color: cadetblue;
-}
-.wrapper {
     margin: 0 auto;
     max-width: 1600px;
     width: 85%;
     padding: 50px;
 }
 
+/* body styles */
+body {
+    color: $textColor;
+    background-color: $primaryColor;
+    font-family: $secondaryFontFamily;
+    font-size: 2rem;
+    min-width: 320px;
+    margin: 0 auto;
+
+}
+
+
 header {
 	/* display: flex; */
 	/* background: cyan; */
-    color: black;
+    color: $textColor;
     text-align: center;
 }
 
 .catImage {
     width: 50%;
+    align-self: stretch;
 }
 
-header h1 {
-	margin: auto;
-	text-transform: uppercase;
-}
 .content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.updatedEnergy {
+    color: red;
 }
 
 .bottomSection {
@@ -79,32 +73,53 @@ header h1 {
     justify-content: space-between;
     align-items: center;
 }
-footer {
-    text-align: center;
-}
-
-button {
-    width: 100px;
-    height: 30px;
-    background-color: cyan;
-}
 
 .messageBox {
-    width: 600px;
+    // width: 600px;
+    width: 50%;
     height: 200px;
     border: 2px solid darkblue; 
     text-align: center;
     margin-top: 10px;
     background-color: cyan;
+    align-self: center;
+}
+
+.clock {
+    width: 25%;
+    // text-align: center;
+    // margin: 0 auto;
+        p {
+            width: 40%;
+            margin: 0 auto;
+            background-color: cyan;
+            text-align: center;
+        }
+}
+
+.icons {
+    width: 25%;
+    text-align: center;
+}
+
+
+footer {
+    text-align: center;
+}
+
+
+* {
+    border: 1px solid yellow;
 }
 
 /* button styles */
 button {
     @include colors ($thirdColor, $secondaryColor);
-    @include primaryFont (25.4, 41.6px);
     text-align: center;
-    display: inline-block;
+    width: 100px;
+    height: 30px;
     border: none;
+    margin: 0 auto;
         &:hover,
         &:focus {
             @include colors ($textColor, $primaryColor);
