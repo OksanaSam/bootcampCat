@@ -878,18 +878,30 @@ img {
 
 /* body styles */
 body {
-  color: black;
-  background-color: cadetblue;
+  color: #457B9D;
+  background-color: #ADE7F6;
   font-family: "Roboto", sans-serif;
   font-size: 2rem;
   min-width: 320px;
   margin: 0 auto;
 }
 
+.welcomePage {
+  height: 100vh;
+}
+
+.welcomePage .startButton {
+  text-align: center;
+}
+
+.gamePage {
+  display: none;
+}
+
 header {
   /* display: flex; */
   /* background: cyan; */
-  color: black;
+  color: #457B9D;
   text-align: center;
 }
 
@@ -949,19 +961,24 @@ header {
 }
 
 .clock {
-  width: 25%;
+  padding: 10px;
+  background-color: cyan;
+  margin: 0 auto;
 }
 
 .clock p {
-  width: 40%;
   margin: 0 auto;
-  background-color: cyan;
   text-align: center;
 }
 
 .icons {
   width: 25%;
   text-align: center;
+}
+
+.blinking {
+  -webkit-animation: blinkingText 1.2s infinite;
+          animation: blinkingText 1.2s infinite;
 }
 
 footer {
@@ -974,18 +991,19 @@ footer {
 
 /* button styles */
 button {
-  background-color: darkblue;
-  color: cyan;
+  background-color: #E3E9FB;
+  color: #0E89E4;
   text-align: center;
   width: 100px;
   height: 30px;
   border: none;
   margin: 0 auto;
+  display: block;
 }
 
-button:hover, button:focus {
-  background-color: black;
-  color: cadetblue;
+button:hover {
+  background-color: #457B9D;
+  color: #ADE7F6;
 }
 
 @media (max-width: 900px) {

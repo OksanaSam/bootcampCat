@@ -43,6 +43,16 @@ body {
 
 }
 
+.welcomePage {
+    height: 100vh;
+        .startButton {
+            text-align: center;
+        }   
+}
+
+.gamePage {
+    display: none;
+}
 
 header {
 	/* display: flex; */
@@ -62,6 +72,8 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+
+
 
 .updatedEnergy {
     color: red;
@@ -86,20 +98,25 @@ header {
 }
 
 .clock {
-    width: 25%;
+    padding: 10px;
+    background-color: cyan;
+    // width: 25%;
     // text-align: center;
-    // margin: 0 auto;
+    margin: 0 auto;
         p {
-            width: 40%;
             margin: 0 auto;
-            background-color: cyan;
-            text-align: center;
+            text-align: center; 
         }
 }
 
 .icons {
     width: 25%;
     text-align: center;
+    // overscroll-behavior: auto contain;
+}
+
+.blinking {
+    animation: blinkingText 1.2s infinite;
 }
 
 
@@ -120,11 +137,13 @@ button {
     height: 30px;
     border: none;
     margin: 0 auto;
-        &:hover,
-        &:focus {
+    display: block;
+        &:hover {
+        // &:focus 
             @include colors ($textColor, $primaryColor);
         }
 }
+
 
 @media(max-width: 900px) {
     html {
