@@ -5,62 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- link to favicon -->
-    <!-- <link type="image/png" href="assets/apple-touch-icon.png" rel="icon"> -->
+    <link type="image/png" href="assets/apple-touch-icon.png" rel="icon">
     <title>Bootcamp Cat</title>
     <!-- link to font awesome -->
     <script src="https://kit.fontawesome.com/c60a364630.js" crossorigin="anonymous"></script>
     <!-- link to google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Walter+Turncoat&display=swap" rel="stylesheet">
     <!-- link to stylesheet -->
-    <link rel="stylesheet" href="styles/sass/style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <main>
+    <div class="welcomePage">
         <div class="wrapper">
-            <div class="welcomePage">
-                <header>
-                    <h1>Bootcamp Cat</h1>
-                </header>
-                <section class="welcomeMessage">
-
-                </section>
-                <button class="buttonDown">Start</button>
-            </div>
-            <div class="gamePage">
-                <section class="content">
-                    <div class="energyDisplay">
-                        <p>Energy Level: <span class="energyNumber">100</span></p>
-                        <p>Hunger Level: <span class="hungerNumber">0</span></p>
-                    </div>
-                    <div class="catImage">
-                        <div class="tenor-gif-embed" data-postid="13203096" data-share-method="host" data-width="100%" data-aspect-ratio="1.4035087719298245"><a href="https://tenor.com/view/typing-cat-neko-lolyinthesky-gif-13203096">Typing Cat GIF</a> from <a href="https://tenor.com/search/typing-gifs">Typing GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-                    </div>
-                    <div class="buttonSection">
-                        <button class="boost">Boost</button>
-                        <button class="feed">Feed</button>
-                        <button class="praise">Praise</button>
-                    </div>
-                </section>
-                <section class="bottomSection">
-                    <div class="clock">
-                        <p><span class="minutes">05</span>:<span class="seconds">00</span></p>
-                    </div>
-                    <div class="messageBox">
-                        <p class="appendedMessage">message</p>
-                    </div>
-                    <div class="icons">
-                        <p><span class="keyword">#wecandoit<span></p>
-                        </div>
-                    </section>
-                <button class="resetButton">Start</button>
-            </div>
+            <header>
+                <h1>Bootcamp Cat</h1>
+            </header>
+            <section class="welcomeMessage">
+                <p id="prehistory"></p>
+            </section>
+            <button class="buttonDown">Open</button>
         </div>
-        <footer>
-            <div class="wrapper">
-                <p>OksanaDev Copyright 2020</p>
-            </div>
-        </footer>
-	</main>
+    </div>
+    <div class="gamePage">
+        <div class="wrapper">
+            <h2>Bootcamp Cat</h2>
+            <section class="content">
+                <div class="energyDisplay">
+                    <p>Energy Level: <span class="energyNumber">100</span></p>
+                    <p>Hunger Level: <span class="hungerNumber">0</span></p>
+                </div>
+                <div class="catImage">
+                    <div class="tenor-gif-embed" data-postid="13203096" data-share-method="host" data-width="100%" data-aspect-ratio="1.4035087719298245"><a href="https://tenor.com/view/typing-cat-neko-lolyinthesky-gif-13203096">Typing Cat GIF</a> from <a href="https://tenor.com/search/typing-gifs">Typing GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                </div>
+                <div class="buttonSection">
+                    <button class="boost">Boost</button>
+                    <button class="feed">Feed</button>
+                    <button class="praise">Praise</button>
+                </div>
+            </section>
+            <section class="bottomSection">
+                <div class="clock">
+                    <p><span class="minutes">05</span>:<span class="seconds">00</span></p>
+                </div>
+                <div class="messageBox">
+                    <p class="appendedMessage">Congrats, your pet made it into the bootcamp! But now it is so consumed with projects and twitter that it is oblivious to everything else. So, now it is your task to keep an eye on your fellow student and  help it to make it through the bootcamp.</p>
+                </div>
+                <div class="keywords">
+                    <p><span class="randomKeyword">#wecandoit<span></p>
+                </div>
+            </section>
+            <button class="resetButton">Start</button>
+        </div>
+    </div>
+    <footer>
+        <div class="wrapper">
+            <p>OksanaDev <span>&copy;</span> Copyright 2020</p>
+        </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="script.js"></script>
 </body>

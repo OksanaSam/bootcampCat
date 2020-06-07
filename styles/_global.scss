@@ -1,0 +1,209 @@
+// * {
+//     border: 1px solid yellow;
+// }
+
+/* stripping styles */
+body,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* wrapper styles */
+.wrapper {
+    margin: 0 auto;
+    max-width: 1600px;
+    width: 85%;
+    // padding: 50px;
+}
+
+/* body styles */
+body {
+    color: $textColor;
+    background-color: $primaryColor;
+    font-family: $secondaryFontFamily;
+    font-size: 2rem;
+    min-width: 320px;
+    text-align: center;
+    // margin: 0 auto;
+
+}
+
+.welcomePage {
+    height: 95vh;
+        .startButton {
+            text-align: center;
+        }   
+}
+
+.welcomeMessage {
+    text-align: left;
+}
+
+footer {
+    text-align: center;
+    height: 5vh;
+}
+
+.gamePage {
+    display: none;
+    height: 95vh;
+}
+
+header {
+	/* display: flex; */
+	/* background: cyan; */
+    color: $textColor;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+        .energyDisplay {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+                .updatedEnergy {
+                    color: red;
+                }
+                .blinking {
+                    animation: blinkingText 1.2s infinite;
+                }
+                @keyframes blinkingText{
+                    0%{ color: red; }
+                    49%{    color: red; }
+                    60%{    color: transparent; }
+                    99%{    color:transparent;  }
+                    100%{   color: red;    }
+                }
+        }
+        .catImage {
+            width: 50%;
+            // align-self: stretch;
+        }
+        .buttonSection {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+}
+
+.bottomSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+        .clock {
+            padding: 10px;
+            background-color: cyan;
+            margin: 0 auto;
+                p {
+                    margin: 0 auto;
+                }
+        }
+        .messageBox {
+            width: 50%;
+            min-height: 200px;
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid darkblue;
+            margin-top: 10px;
+            background-color: cyan;
+            padding: 10px;
+        }
+        .keywords {
+            width: 25%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            // overscroll-behavior: auto contain;
+        }
+}
+
+/* button styles */
+button {
+    @include colors ($thirdColor, $secondaryColor);
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    border: none;
+    margin: 0 auto;
+    display: block;
+        &:hover {
+        // &:focus 
+            @include colors ($textColor, $primaryColor);
+        }
+}
+
+@media(max-width: 900px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@media(max-width: 768px) {
+    html {
+        font-size: 56.25%;
+    }
+
+    .wrapper {
+        width: 90%;
+    }
+
+    .content {
+        flex-direction: column;
+            .energyDisplay,
+            .buttonSection {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+            }
+            .catImage {
+                width: 100%;
+            }
+    }
+
+    .bottomSection {
+        flex-wrap: wrap;
+            .clock {
+                width: 50%;
+                order: 2;
+            }
+            .messageBox {
+                width: 100%;
+                order: 1;
+                min-height: 200px;
+            }
+            .keywords {
+                order: 3;
+                width: 50%;
+            }
+    }    
+}
