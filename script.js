@@ -247,7 +247,7 @@ myApp.endGame = () => {
     myApp.isGameRunning = false;
     setTimeout(() => myApp.updateTime(), 1000);
     $('.catImage').html(`<img src="assets/noun_Cat calculator_232259.png" alt="A cat typing on its laptop, a representation of a developer cat">`);
-    $('.appendedMessage').html(`Congratulations!`);
+    $('.appendedMessage').html(`Congrats! You made it through! Assignment is finished and pushed to GitHub. Time for a celebratory cat treat and up to #bootcamp-help.`);
 };
 
 /*-----------Init Function----------------*/ 

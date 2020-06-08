@@ -254,6 +254,15 @@ button {
         width: 90%;
     }
 
+
+    .social {
+        flex-direction: row;
+        justify-content: center;
+        position: static;
+        padding-top: 80px;
+    }
+    
+
     .content {
         flex-direction: column;
             .energyDisplay,
@@ -282,5 +291,5 @@ button {
                 order: 3;
                 width: 50%;
             }
-    }    
+    }  
 }
