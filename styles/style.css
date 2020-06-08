@@ -879,7 +879,7 @@ img {
 body {
   color: #457B9D;
   background-color: #ADE7F6;
-  font-family: "Roboto", sans-serif;
+  font-family: "Zilla Slab", serif;
   font-size: 2rem;
   min-width: 320px;
   text-align: center;
@@ -887,24 +887,61 @@ body {
 
 .welcomePage {
   height: 95vh;
+  padding: 100px 0;
 }
 
-.welcomePage .startButton {
-  text-align: center;
+.welcomePage h1 {
+  font-family: "Amatic SC", cursive;
+  text-transform: uppercase;
+  padding-bottom: 30px;
+  font-size: 70px;
+  font-size: 7rem;
 }
 
-.welcomeMessage {
+.welcomePage .welcomeMessage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+.welcomePage .welcomeMessage .welcomeImage {
+  -ms-flex-preferred-size: 35%;
+      flex-basis: 35%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.welcomePage .welcomeMessage p {
+  font-size: 3rem;
   text-align: left;
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+  line-height: 4rem;
 }
 
 footer {
   text-align: center;
   height: 5vh;
+  font-family: "Amatic SC", cursive;
 }
 
 .gamePage {
   display: none;
   height: 95vh;
+}
+
+.gamePage h2 {
+  font-family: "Amatic SC", cursive;
+  text-transform: uppercase;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  font-size: 60px;
+  font-size: 6rem;
 }
 
 header {
@@ -1004,9 +1041,8 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1026,24 +1062,28 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 20px;
 }
 
 .bottomSection .clock {
-  padding: 10px;
-  background-color: cyan;
-  margin: 0 auto;
+  width: 25%;
 }
 
 .bottomSection .clock p {
+  border: 2px solid #457B9D;
+  border-radius: 5px;
+  padding: 10px;
   margin: 0 auto;
+  width: 100px;
 }
 
 .bottomSection .messageBox {
   width: 50%;
-  min-height: 200px;
+  min-height: 150px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1053,9 +1093,10 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 2px solid darkblue;
-  margin-top: 10px;
-  background-color: cyan;
+  border: 2px solid #457B9D;
+  margin: 10px 0;
+  background-color: #E3E9FB;
+  color: #0E89E4;
   padding: 10px;
 }
 
@@ -1076,9 +1117,13 @@ button {
   background-color: #E3E9FB;
   color: #0E89E4;
   text-align: center;
-  width: 100px;
-  height: 30px;
-  border: none;
+  font-family: "Zilla Slab", serif;
+  text-transform: uppercase;
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+  border: 2px solid #457B9D;
+  padding: 5px;
   margin: 0 auto;
   display: block;
 }
@@ -1086,6 +1131,10 @@ button {
 button:hover {
   background-color: #457B9D;
   color: #ADE7F6;
+  opacity: 0.5;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 @media (max-width: 900px) {

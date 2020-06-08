@@ -13,7 +13,7 @@ myApp.isGameRunning = false;
 myApp.isFirstGame = true;
 
 //
-myApp.prehistory = 'After several months of struggling, reading books and forums, solving tech challenges, passing personality test, overcoming self-doubt and crying next to the fridge in the middle of the night, the long-awaited email from Juno appeared in the inbox. The contents of it will seal your fate.';
+myApp.prehistory = 'After a few months of struggling, reading books and forums, solving tech challenges, passing a personality test, overcoming self-doubt and crying in front of the fridge in the middle of the night, you receive a long-awaited email from Juno. The contents of it will determine your fate.';
 // cancel code for clearing interval for appearing text on welcome page  
 myApp.cancelPrehistoryCode;
 
@@ -93,6 +93,24 @@ myApp.updateEnergy = () => {
     $('.energyNumber').html(`${myApp.bootcampCat.energyLevel}`);
 };
 
+// a function to update video based on energy and hunger level
+myApp.updateVideo = () => {
+    if (myApp.bootcampCat.energyLevel > 100) {
+        $('.appendedMessage').html(`Coffee Junkie`);
+    } else if (myApp.bootcampCat.energyLevel >= 80 && myApp.bootcampCat.hungerLevel <= 30) {
+        $('.appendedMessage').html(`Cat is productive and efficient`);
+    } else if (myApp.bootcampCat.energyLevel < 80 && myApp.bootcampCat.energyLevel >= 50) {
+        $('.appendedMessage').html(`Cat might need some coffee to stay active`);
+    } else if (myApp.bootcampCat.energyLevel > 20 ) {
+        $('.appendedMessage').html('Cat really needs some boost of energy');
+    } else {
+        $('.catImage').html(`<img src="assets/noun_Cat calculator_232259.png" alt="A cat typing on its laptop, a representation of a developer cat">`);
+        $('.appendedMessage').html(`Cat's energy is critically low, it cannot study`);
+    }
+};
+
+
+
 // a function to update hunger level and display it on the screen
 myApp.updateHunger = () => {
     // the hunger level is automatically increasing by 10 points every 10 seconds 
@@ -129,12 +147,12 @@ myApp.reactToEnergyLevel = () => {
 myApp.update = () => {
     // run the function only if the isGameRunning variable is set to true (it is set to true once the user clicks to start or restart the game), otherwise exit the function
     if (!myApp.isGameRunning) return;
-
     myApp.updateTime();
     myApp.updateEnergy();
     myApp.updateHunger();
     myApp.updateTicks();
     myApp.reactToEnergyLevel();
+    myApp.updateVideo();
 };
 
 /*-----------Event Listeners on Buttons----------------*/
@@ -187,13 +205,14 @@ myApp.handlePraise = () => {
 
 /*-----------Start / Restart / End Game----------------*/ 
 myApp.startNewGame = () => {
+    $('.catImage').html(`<div class="tenor-gif-embed" data-postid="13203096" data-share-method="host" data-width="100%" data-aspect-ratio="1.4035087719298245"><a href="https://tenor.com/view/typing-cat-neko-lolyinthesky-gif-13203096">Typing Cat GIF</a> from <a href="https://tenor.com/search/typing-gifs">Typing GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>`);
     // add event listeners on click on respective buttons 
     if (myApp.isFirstGame) {
         $('.boost').on('click', myApp.handleBoost);
         $('.feed').on('click', myApp.handleFeed);
         $('.praise').on('click', myApp.handlePraise);
         myApp.isFirstGame = false;
-        // start picking random keywords
+        // start picking random keywords every 4 seconds
         setInterval(myApp.getRandomKeyword, 4000);
     };
     // once the user clicks to start or restart the game, variable is set to true which is triggering the ticks update above)
@@ -213,6 +232,8 @@ myApp.startNewGame = () => {
 myApp.endGame = () => {
     myApp.isGameRunning = false;
     setTimeout(() => myApp.updateTime(), 1000);
+    $('.catImage').html(`<img src="assets/noun_Cat calculator_232259.png" alt="A cat typing on its laptop, a representation of a developer cat">`);
+    $('.appendedMessage').html(`Game is over`);
 };
 
 /*-----------Init Function----------------*/ 

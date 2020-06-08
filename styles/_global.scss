@@ -50,23 +50,50 @@ body {
 
 .welcomePage {
     height: 95vh;
-        .startButton {
-            text-align: center;
-        }   
+    padding: 100px 0;
+        h1 {
+            font-family: $primaryFontFamily;
+            text-transform: uppercase;
+            padding-bottom: 30px;
+            @include fontSize(70);
+        }
+        .welcomeMessage {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 30px;
+                .welcomeImage {
+                    flex-basis: 35%;
+                    align-self: center;
+                }
+                p {
+                    font-size: 3rem;
+                    text-align: left;
+                    flex-basis: 60%;
+                    line-height: 4rem;
+                }
+        }
+        .buttonDown {
+            // font-family: $primaryFontFamily;;
+        }
 }
 
-.welcomeMessage {
-    text-align: left;
-}
 
 footer {
     text-align: center;
     height: 5vh;
+    font-family: $primaryFontFamily;
 }
 
 .gamePage {
     display: none;
     height: 95vh;
+        h2 {
+            font-family: $primaryFontFamily;
+            text-transform: uppercase;
+            padding-bottom: 30px;
+            padding-top: 30px;
+            @include fontSize(60);
+        }
 }
 
 header {
@@ -108,7 +135,7 @@ header {
             width: 25%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
         }
 }
@@ -118,24 +145,28 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 20px;
         .clock {
-            padding: 10px;
-            background-color: cyan;
-            margin: 0 auto;
+            width: 25%;
                 p {
+                    border: 2px solid $textColor;
+                    border-radius: 5px;
+                    padding: 10px;
                     margin: 0 auto;
+                    width: 100px;
                 }
         }
         .messageBox {
             width: 50%;
-            min-height: 200px;
+            min-height: 150px;
             height: fit-content;
+            border-radius: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 2px solid darkblue;
-            margin-top: 10px;
-            background-color: cyan;
+            border: 2px solid $textColor;
+            margin: 10px 0;
+            @include colors ($thirdColor, $secondaryColor);
             padding: 10px;
         }
         .keywords {
@@ -151,16 +182,33 @@ header {
 button {
     @include colors ($thirdColor, $secondaryColor);
     text-align: center;
-    width: 100px;
-    height: 30px;
-    border: none;
+    font-family: $secondaryFontFamily;
+    text-transform: uppercase;
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+    border: 2px solid $textColor;
+    padding: 5px;
     margin: 0 auto;
     display: block;
         &:hover {
         // &:focus 
             @include colors ($textColor, $primaryColor);
+            opacity: 0.5;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
         }
 }
+
+
+
+// font-family: "Merriweather", serif;
+// border: 2px solid dimgray;
+// min-width: 200px;
+// min-height: 50px;
+// text-align: center;
+// margin: 30px 15px;
+// padding: 15px;
 
 @media(max-width: 900px) {
     html {
