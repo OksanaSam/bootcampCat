@@ -946,8 +946,12 @@ body {
   padding: 10px;
 }
 
-.social li a {
+.social a {
   color: #457B9D;
+}
+
+.social a:hover {
+  color: #0E89E4;
 }
 
 .visually-hidden {
@@ -959,7 +963,6 @@ body {
   /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
-  /* added line */
 }
 
 footer {
@@ -980,12 +983,6 @@ footer {
   padding-top: 30px;
   font-size: 60px;
   font-size: 6rem;
-}
-
-header {
-  /* display: flex; */
-  /* background: cyan; */
-  color: #457B9D;
 }
 
 .content {
@@ -1084,6 +1081,10 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.content .buttonSection .disabled {
+  cursor: not-allowed;
 }
 
 .bottomSection {

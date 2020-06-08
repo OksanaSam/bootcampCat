@@ -12,8 +12,8 @@ myApp.isGameRunning = false;
 // variable defining if it is the first game
 myApp.isFirstGame = true;
 
-//
-myApp.prehistory = 'Months of struggling, reading books and forums, solving tech challenges, passing a personality test, overcoming self-doubt and crying next to the fridge in the middle of the night, and a long-awaited email from Juno lands in the inbox. The contents of it will be life-changing.';
+// text to be gradually appended to the welcome page 
+myApp.prehistory = 'Months of struggling, reading books and forums, solving tech challenges, passing a personality test, overcoming self-doubt and crying next to the fridge in the middle of the night, and a long-awaited email from Juno lands in the inbox. Its contents will be life-changing.';
 // cancel code for clearing interval for appearing text on welcome page  
 myApp.cancelPrehistoryCode;
 
@@ -95,6 +95,7 @@ myApp.updateEnergy = () => {
 
 // a function to update video based on energy and hunger level
 myApp.updateVideo = () => {
+    if (!myApp.isGameRunning) return;
     if (myApp.bootcampCat.energyLevel > 100) {
         $('.appendedMessage').html(`Coffee Junkie`);
     } else if (myApp.bootcampCat.energyLevel >= 80 && myApp.bootcampCat.hungerLevel <= 30) {
@@ -193,8 +194,8 @@ myApp.handlePraise = () => {
     // increse the energy level by 10 points if user clicks the Praise button
     myApp.bootcampCat.energyLevel += 10;
     // prevent the energy level from going above 150
-    if (myApp.bootcampCat.energyLevel >= 150) {
-        myApp.bootcampCat.energyLevel = 150;
+    if (myApp.bootcampCat.energyLevel >= 100) {
+        myApp.bootcampCat.energyLevel = 100;
     };
     // display energy level on the screen
     $('.energyNumber').html(`${myApp.bootcampCat.energyLevel}`);
@@ -210,6 +211,7 @@ myApp.startNewGame = () => {
         $('.boost').on('click', myApp.handleBoost);
         $('.feed').on('click', myApp.handleFeed);
         $('.praise').on('click', myApp.handlePraise);
+        $('.sleep').on('click', myApp.handleSleep);
         myApp.isFirstGame = false;
         // start picking random keywords every 4 seconds
         setInterval(myApp.getRandomKeyword, 4000);
@@ -227,12 +229,18 @@ myApp.startNewGame = () => {
     myApp.updateHunger();
 };
 
+myApp.handleSleep = () => {
+    if (!myApp.isGameRunning || $('.sleep').hasClass('disabled')) return;
+    $('.appendedMessage').html(`Are you kidding me? Is it even legal during the bootcamp?`);
+    $('.sleep').addClass('disabled');
+}
+
 // a function to end the game, which is called once the set amount of ticks elapses, isGameRunning is set to false to prevent ticks from updating
 myApp.endGame = () => {
     myApp.isGameRunning = false;
     setTimeout(() => myApp.updateTime(), 1000);
     $('.catImage').html(`<img src="assets/noun_Cat calculator_232259.png" alt="A cat typing on its laptop, a representation of a developer cat">`);
-    $('.appendedMessage').html(`Game is over`);
+    $('.appendedMessage').html(`Game Is Over`);
 };
 
 /*-----------Init Function----------------*/ 

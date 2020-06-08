@@ -72,36 +72,39 @@ body {
                     line-height: 4rem;
                 }
         }
-        .buttonDown {
-            // font-family: $primaryFontFamily;;
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+        li {
+            padding: 10px;
         }
-    }
+        a {
+            color: $textColor;  
+            // padding: 7px;
+            // border-radius: 50%;
+                &:hover {
+                    // background-color: $textColor;
+                    color: $secondaryColor;
+                }
+        }
+}
 
-    .social {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 10px;
-            li {
-                padding: 10px;
-                    a {
-                        color: $textColor;  
-                    }
-            }
-    }
-
-    .visually-hidden { 
-        position: absolute !important;
-        height: 1px; 
-        width: 1px;
-        overflow: hidden;
-        clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-        clip: rect(1px, 1px, 1px, 1px);
-        white-space: nowrap; /* added line */
-    }
+.visually-hidden { 
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
 
 footer {
     text-align: center;
@@ -119,12 +122,6 @@ footer {
             padding-top: 30px;
             @include fontSize(60);
         }
-}
-
-header {
-	/* display: flex; */
-	/* background: cyan; */
-    color: $textColor;
 }
 
 .content {
@@ -162,6 +159,9 @@ header {
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
+                .disabled {
+                    cursor: not-allowed;
+                }
         }
 }
 
@@ -224,6 +224,8 @@ button {
             cursor: pointer;
         }
 }
+
+
 
 @media(max-width: 900px) {
     html {
