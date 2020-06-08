@@ -50,7 +50,7 @@ body {
 
 .welcomePage {
     height: 95vh;
-    padding: 100px 0;
+    padding-top: 100px;
         h1 {
             font-family: $primaryFontFamily;
             text-transform: uppercase;
@@ -97,7 +97,7 @@ body {
 }
 
 .visually-hidden { 
-    position: absolute !important;
+    position: absolute;
     height: 1px; 
     width: 1px;
     overflow: hidden;
@@ -107,8 +107,13 @@ body {
 }
 
 footer {
-    text-align: center;
-    height: 5vh;
+    // text-align: center;
+    // position: relative;
+    // bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // height: 5%;
     font-family: $primaryFontFamily;
 }
 
@@ -159,11 +164,18 @@ footer {
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
-                .disabled {
-                    cursor: not-allowed;
-                }
         }
 }
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    &:hover {
+        cursor: not-allowed;
+        @include colors ($thirdColor, $secondaryColor);
+        transition: none;
+    }
+}           
 
 .bottomSection {
     display: flex;

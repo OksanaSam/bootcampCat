@@ -11,6 +11,8 @@ myApp.ticks = 300;
 myApp.isGameRunning = false;
 // variable defining if it is the first game
 myApp.isFirstGame = true;
+// variable defining if messages are updating
+myApp.isMessageFrozen = false;
 
 // text to be gradually appended to the welcome page 
 myApp.prehistory = 'Months of struggling, reading books and forums, solving tech challenges, passing a personality test, overcoming self-doubt and crying next to the fridge in the middle of the night, and a long-awaited email from Juno lands in the inbox. Its contents will be life-changing.';
@@ -95,7 +97,7 @@ myApp.updateEnergy = () => {
 
 // a function to update video based on energy and hunger level
 myApp.updateVideo = () => {
-    if (!myApp.isGameRunning) return;
+    if (!myApp.isGameRunning || myApp.isMessageFrozen) return;
     if (myApp.bootcampCat.energyLevel > 100) {
         $('.appendedMessage').html(`Coffee Junkie`);
     } else if (myApp.bootcampCat.energyLevel >= 80 && myApp.bootcampCat.hungerLevel <= 30) {
@@ -231,8 +233,13 @@ myApp.startNewGame = () => {
 
 myApp.handleSleep = () => {
     if (!myApp.isGameRunning || $('.sleep').hasClass('disabled')) return;
+    
+    myApp.isMessageFrozen = true;
     $('.appendedMessage').html(`Are you kidding me? Is it even legal during the bootcamp?`);
     $('.sleep').addClass('disabled');
+    setTimeout(() => {
+        myApp.isMessageFrozen = false;
+    }, 3000);
 }
 
 // a function to end the game, which is called once the set amount of ticks elapses, isGameRunning is set to false to prevent ticks from updating
@@ -240,7 +247,7 @@ myApp.endGame = () => {
     myApp.isGameRunning = false;
     setTimeout(() => myApp.updateTime(), 1000);
     $('.catImage').html(`<img src="assets/noun_Cat calculator_232259.png" alt="A cat typing on its laptop, a representation of a developer cat">`);
-    $('.appendedMessage').html(`Game Is Over`);
+    $('.appendedMessage').html(`Congratulations!`);
 };
 
 /*-----------Init Function----------------*/ 
