@@ -75,8 +75,33 @@ body {
         .buttonDown {
             // font-family: $primaryFontFamily;;
         }
-}
+    }
 
+    .social {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+            li {
+                padding: 10px;
+                    a {
+                        color: $textColor;  
+                    }
+            }
+    }
+
+    .visually-hidden { 
+        position: absolute !important;
+        height: 1px; 
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+        clip: rect(1px, 1px, 1px, 1px);
+        white-space: nowrap; /* added line */
+    }
 
 footer {
     text-align: center;
@@ -199,16 +224,6 @@ button {
             cursor: pointer;
         }
 }
-
-
-
-// font-family: "Merriweather", serif;
-// border: 2px solid dimgray;
-// min-width: 200px;
-// min-height: 50px;
-// text-align: center;
-// margin: 30px 15px;
-// padding: 15px;
 
 @media(max-width: 900px) {
     html {

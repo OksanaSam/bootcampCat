@@ -13,7 +13,7 @@ myApp.isGameRunning = false;
 myApp.isFirstGame = true;
 
 //
-myApp.prehistory = 'After a few months of struggling, reading books and forums, solving tech challenges, passing a personality test, overcoming self-doubt and crying in front of the fridge in the middle of the night, you receive a long-awaited email from Juno. The contents of it will determine your fate.';
+myApp.prehistory = 'Months of struggling, reading books and forums, solving tech challenges, passing a personality test, overcoming self-doubt and crying next to the fridge in the middle of the night, and a long-awaited email from Juno lands in the inbox. The contents of it will be life-changing.';
 // cancel code for clearing interval for appearing text on welcome page  
 myApp.cancelPrehistoryCode;
 
@@ -104,7 +104,6 @@ myApp.updateVideo = () => {
     } else if (myApp.bootcampCat.energyLevel > 20 ) {
         $('.appendedMessage').html('Cat really needs some boost of energy');
     } else {
-        $('.catImage').html(`<img src="assets/noun_Cat calculator_232259.png" alt="A cat typing on its laptop, a representation of a developer cat">`);
         $('.appendedMessage').html(`Cat's energy is critically low, it cannot study`);
     }
 };
