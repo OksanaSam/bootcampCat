@@ -917,6 +917,7 @@ body {
 }
 
 .welcomePage .welcomeMessage p {
+  font-size: 30px;
   font-size: 3rem;
   text-align: left;
   -ms-flex-preferred-size: 60%;
@@ -1205,6 +1206,33 @@ button:hover {
   .wrapper {
     width: 90%;
   }
+  .welcomePage {
+    padding-top: 20px;
+  }
+  .welcomePage h1 {
+    font-size: 50px;
+    font-size: 5rem;
+  }
+  .welcomePage .welcomeMessage {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .welcomePage .welcomeMessage .welcomeImage {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .welcomePage .welcomeMessage p {
+    font-size: 20px;
+    font-size: 2rem;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    line-height: 3rem;
+    height: 50%;
+  }
   .social {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1260,4 +1288,3 @@ button:hover {
     width: 50%;
   }
 }
-/*# sourceMappingURL=style.css.map */
