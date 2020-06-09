@@ -1,0 +1,86 @@
+/* game page styles */
+.gamePage {
+    display: none;
+    height: 100vh;
+        h2 {
+            font-family: $primaryFontFamily;
+            @include fontSize(60);
+            text-transform: uppercase;
+            padding: 30px 0;
+        }
+}
+
+.content {
+    @include flex(row nowrap, center, center);
+        .energyDisplay {
+            width: 25%;
+            @include flex(column nowrap, space-between, center);
+                p {
+                    margin-bottom: 15px;
+                }
+                .updatedEnergy {
+                    color: $accentColor;
+                }
+                .blinking {
+                    animation: blinkingText 1.2s infinite;
+                }
+                @keyframes blinkingText{
+                    0% { color: $accentColor; }
+                    49% { color: $accentColor; }
+                    60% { color: transparent; }
+                    99% { color:transparent; }
+                    100% { color: $accentColor; }
+                }
+        }
+        .catImage {
+            width: 50%;
+        }
+        .buttonSection {
+            width: 25%;
+            @include flex(column nowrap, space-between, center);
+                button {
+                    margin-top: 15px;
+                }
+        }
+}
+
+/* disabled sleep button styles */
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    &:hover {
+        @include colors ($thirdColor, $secondaryColor);
+        cursor: not-allowed;
+        transition: none;
+    }
+}           
+
+.bottomSection {
+    @include flex(row nowrap, space-between, center);
+    padding-bottom: 20px;
+        .clock {
+            width: 25%;
+                p {
+                    border: 2px solid $textColor;
+                    border-radius: 5px;
+                    padding: 10px;
+                    margin: 0 auto;
+                    width: 100px;
+                }
+        }
+        .messageBox {
+            @include colors ($thirdColor, $secondaryColor);
+            width: 50%;
+            min-height: 150px;
+            height: fit-content;
+            border-radius: 5px;
+            @include flex(row nowrap, center, center);
+            border: 2px solid $textColor;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .keywords {
+            width: 25%;
+            @include flex(row nowrap, center, stretch);
+        }
+}

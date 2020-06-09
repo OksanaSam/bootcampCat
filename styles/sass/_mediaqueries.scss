@@ -1,0 +1,75 @@
+
+@media(max-width: 900px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@media(max-width: 768px) {
+    .wrapper {
+        width: 90%;
+    }
+
+    /* welcome page styles */
+    .welcomePage {
+        padding-top: 20px;
+            h1 {
+                @include fontSize(50);
+            }
+            .welcomeMessage {
+                flex-direction: column;
+                    .welcomeImage {
+                        order: 1;
+                    }
+                    p {
+                        @include fontSize(25);
+                        order: 2;
+                        line-height: 3rem;
+                    }
+            }
+    }
+
+    /* social ul styles */
+    .social {
+        flex-direction: row;
+        justify-content: center;
+        position: static;
+        margin-top: 60px;
+    }
+    
+    /* game page styles */
+    .gamePage h2 {
+        @include fontSize(40);
+        padding: 20px 0;
+    }
+
+    .content {
+        flex-direction: column;
+            .energyDisplay,
+            .buttonSection {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+            }
+            .catImage {
+                width: 100%;
+            }
+    }
+
+    .bottomSection {
+        flex-wrap: wrap;
+            .clock {
+                width: 50%;
+                order: 2;
+            }
+            .messageBox {
+                width: 100%;
+                order: 1;
+                min-height: 200px;
+            }
+            .keywords {
+                order: 3;
+                width: 50%;
+            }
+    }  
+}

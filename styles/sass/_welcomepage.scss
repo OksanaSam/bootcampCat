@@ -1,0 +1,57 @@
+/* welcome page styles */
+.welcomePage {
+    height: 100vh;
+    padding-top: 100px;
+        h1 {
+            font-family: $primaryFontFamily;
+            text-transform: uppercase;
+            padding-bottom: 30px;
+            @include fontSize(70);
+        }
+        .welcomeMessage {
+            @include flex(row nowrap, space-between, stretch);
+            padding-bottom: 30px;
+                .welcomeImage {
+                    flex-basis: 35%;
+                    align-self: center;
+                }
+                p {
+                    @include fontSize(30);
+                    padding-top: 20px;
+                    text-align: left;
+                    flex-basis: 60%;
+                    line-height: 4rem;
+                }
+        }
+}
+
+/* social ul styles */
+.social {
+    @include flex(column nowrap, space-between, stretch);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+        li {
+            padding: 10px;
+        }
+        a {
+            color: $textColor;
+            @include fontSize(30);
+            &:hover {
+                color: $secondaryColor;
+                @include fontSize(35);
+            }
+        }
+}
+
+/* accessable text */
+.visually-hidden { 
+    position: absolute;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}

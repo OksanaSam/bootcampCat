@@ -877,14 +877,41 @@ img {
 
 /* body styles */
 body {
-  color: #457B9D;
   background-color: #ADE7F6;
+  color: #457B9D;
   font-family: "Zilla Slab", serif;
+  font-size: 20px;
   font-size: 2rem;
   min-width: 320px;
   text-align: center;
 }
 
+/* button styles */
+button {
+  background-color: #E3E9FB;
+  color: #0E89E4;
+  font-family: "Zilla Slab", serif;
+  text-align: center;
+  text-transform: uppercase;
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+  border: 2px solid #457B9D;
+  padding: 5px;
+  margin: 0 auto;
+  display: block;
+}
+
+button:hover, button:focus {
+  background-color: #457B9D;
+  color: #ADE7F6;
+  opacity: 0.5;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* welcome page styles */
 .welcomePage {
   height: 100vh;
   padding-top: 100px;
@@ -902,9 +929,16 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   padding-bottom: 30px;
 }
 
@@ -926,17 +960,21 @@ body {
   line-height: 4rem;
 }
 
+/* social ul styles */
 .social {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -960,6 +998,7 @@ body {
   font-size: 3.5rem;
 }
 
+/* accessable text */
 .visually-hidden {
   position: absolute;
   height: 1px;
@@ -971,19 +1010,7 @@ body {
   white-space: nowrap;
 }
 
-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: "Amatic SC", cursive;
-}
-
+/* game page styles */
 .gamePage {
   display: none;
   height: 100vh;
@@ -991,11 +1018,10 @@ footer {
 
 .gamePage h2 {
   font-family: "Amatic SC", cursive;
-  text-transform: uppercase;
-  padding-bottom: 30px;
-  padding-top: 30px;
   font-size: 60px;
   font-size: 6rem;
+  text-transform: uppercase;
+  padding: 30px 0;
 }
 
 .content {
@@ -1004,8 +1030,8 @@ footer {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1021,8 +1047,8 @@ footer {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1036,7 +1062,7 @@ footer {
 }
 
 .content .energyDisplay .updatedEnergy {
-  color: red;
+  color: #FF0000;
 }
 
 .content .energyDisplay .blinking {
@@ -1046,10 +1072,10 @@ footer {
 
 @-webkit-keyframes blinkingText {
   0% {
-    color: red;
+    color: #FF0000;
   }
   49% {
-    color: red;
+    color: #FF0000;
   }
   60% {
     color: transparent;
@@ -1058,16 +1084,16 @@ footer {
     color: transparent;
   }
   100% {
-    color: red;
+    color: #FF0000;
   }
 }
 
 @keyframes blinkingText {
   0% {
-    color: red;
+    color: #FF0000;
   }
   49% {
-    color: red;
+    color: #FF0000;
   }
   60% {
     color: transparent;
@@ -1076,7 +1102,7 @@ footer {
     color: transparent;
   }
   100% {
-    color: red;
+    color: #FF0000;
   }
 }
 
@@ -1091,8 +1117,8 @@ footer {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1105,15 +1131,16 @@ footer {
   margin-top: 15px;
 }
 
+/* disabled sleep button styles */
 .disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
 .disabled:hover {
-  cursor: not-allowed;
   background-color: #E3E9FB;
   color: #0E89E4;
+  cursor: not-allowed;
   -webkit-transition: none;
   transition: none;
 }
@@ -1124,8 +1151,8 @@ footer {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1148,6 +1175,8 @@ footer {
 }
 
 .bottomSection .messageBox {
+  background-color: #E3E9FB;
+  color: #0E89E4;
   width: 50%;
   min-height: 150px;
   height: -webkit-fit-content;
@@ -1157,6 +1186,10 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1165,8 +1198,6 @@ footer {
           align-items: center;
   border: 2px solid #457B9D;
   margin: 10px 0;
-  background-color: #E3E9FB;
-  color: #0E89E4;
   padding: 10px;
 }
 
@@ -1175,36 +1206,16 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-/* button styles */
-button {
-  background-color: #E3E9FB;
-  color: #0E89E4;
-  text-align: center;
-  font-family: "Zilla Slab", serif;
-  text-transform: uppercase;
-  width: 150px;
-  height: auto;
-  border-radius: 5px;
-  border: 2px solid #457B9D;
-  padding: 5px;
-  margin: 0 auto;
-  display: block;
-}
-
-button:hover, button:focus {
-  background-color: #457B9D;
-  color: #ADE7F6;
-  opacity: 0.5;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 @media (max-width: 900px) {
@@ -1217,6 +1228,7 @@ button:hover, button:focus {
   .wrapper {
     width: 90%;
   }
+  /* welcome page styles */
   .welcomePage {
     padding-top: 20px;
   }
@@ -1243,6 +1255,7 @@ button:hover, button:focus {
             order: 2;
     line-height: 3rem;
   }
+  /* social ul styles */
   .social {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1253,6 +1266,12 @@ button:hover, button:focus {
             justify-content: center;
     position: static;
     margin-top: 60px;
+  }
+  /* game page styles */
+  .gamePage h2 {
+    font-size: 40px;
+    font-size: 4rem;
+    padding: 20px 0;
   }
   .content {
     -webkit-box-orient: vertical;

@@ -85,7 +85,6 @@ myApp.updateEnergy = () => {
     // energy is automatically decreasing by 10 points every 5 seconds 
     if (myApp.ticks % 5 === 0 && myApp.ticks !== 300) {
         myApp.bootcampCat.energyLevel -= 10;
-        myApp.bootcampCat.sleepLevel += 5;
     }
     // once the energy level is hitting zero, set it to equal zero   
     if (myApp.bootcampCat.energyLevel < 0) {
@@ -112,28 +111,34 @@ myApp.updateHunger = () => {
 // updating messages based on energy and hunger level
 myApp.updateVideo = () => {
     if (!myApp.isGameRunning || myApp.isMessageFrozen) return;
-    if (myApp.bootcampCat.energyLevel <= 30 && myApp.bootcampCat.hungerLevel >= 70) {
+
+    const energyCritical = myApp.bootcampCat.energyLevel <= 30;
+    const hungerCritical = myApp.bootcampCat.hungerLevel >= 70
+    const energyMiddle = myApp.bootcampCat.energyLevel <= 70;
+    const hungerMiddle = myApp.bootcampCat.hungerLevel >= 30;
+    const coffeeMax = myApp.bootcampCat.energyLevel > 100;
+    if (energyCritical && hungerCritical) {
         $('.appendedMessage').html(`Energy and food-deprived cat considers finding a better buddy.`);
-    } else if (myApp.bootcampCat.energyLevel <= 30 && myApp.bootcampCat.hungerLevel) {
+    } else if (energyCritical) {
         $('.appendedMessage').html(`The cat is struggling to keep its eyes open.`);
-    } else if (myApp.bootcampCat.energyLevel && myApp.bootcampCat.hungerLevel >= 70) {
+    } else if (hungerCritical) {
         $('.appendedMessage').html(`It's shocking to see you keeping your cool while your cat hasn't eaten for more than a minute!`);
-    } else if (myApp.bootcampCat.energyLevel <= 40 && myApp.bootcampCat.hungerLevel) {
-        $('.appendedMessage').html(`Your cat is yawning so cute... Wait, maybe it needs some boost?`);
-    } else if (myApp.bootcampCat.energyLevel && myApp.bootcampCat.hungerLevel >= 60) {
-        $('.appendedMessage').html(`Is that stomach growl?`);
-    } else if (myApp.bootcampCat.energyLevel <= 60 && myApp.bootcampCat.hungerLevel >= 50) {
+    } else if (energyMiddle && hungerMiddle) {
         $('.appendedMessage').html(`Your cat keeps working but now and then is giving you a heavy look.`);
-    } else if (myApp.bootcampCat.energyLevel >= 100 && myApp.bootcampCat.hungerLevel) {
+    } else if (hungerMiddle) {
+        $('.appendedMessage').html(`Is that stomach growl?`);
+    } else if (energyMiddle) {
+        $('.appendedMessage').html(`Your cat is yawning so cute... Wait, maybe it needs some boost?`);
+    } else if (coffeeMax) {
         $('.appendedMessage').html(`You are turning your cat into a coffee junkie!`);
-    } else if (myApp.bootcampCat.energyLevel && myApp.bootcampCat.hungerLevel >= 0) {
+    } else {
         $('.appendedMessage').html(`Your cat is efficient, focused and productive.`);
     }
 };
 
 // checking lower und upper energy thresholds and add relevant classes to alert user once thresholds are met
 myApp.reactToEnergyLevel = () => {
-    // once the energy level is hitting 20 or lower, make it blink on screen by adding a corresponding class
+    // once the energy level is hitting 30 or lower, make it blink on screen by adding a corresponding class
     if (myApp.bootcampCat.energyLevel <= 30) {
         $('.energyNumber').addClass('blinking');
     // if it does not meet the above condition, remove the added class
@@ -253,10 +258,13 @@ myApp.startNewGame = () => {
 // ending the game, called once the set amount of ticks elapses, isGameRunning is set to false to prevent ticks from updating
 myApp.endGame = () => {
     myApp.isGameRunning = false;
-    setTimeout(() => myApp.updateTime(), 1000);
-    $('.catImage').html(`<img src="assets/staticCat.jpg" alt="A cat typing on its laptop, a representation of a developer cat">`);
-    $('.appendedMessage').html(`Congrats, you made it through! Assignment has been pushed to GitHub. Time for a celebratory cat treat and up to #partyroom.`);
-    $('.energyNumber').removeClass('blinking');
+    setTimeout(() => {
+        myApp.isMessageFrozen = false;
+        myApp.updateTime();
+        $('.catImage').html(`<img src="assets/staticCat.jpg" alt="A cat typing on its laptop, a representation of a developer cat">`);
+        $('.appendedMessage').html(`Congrats, you made it through! Assignment has been pushed to GitHub. Time for a celebratory Orbitz and up to #partyroom.`);
+        $('.energyNumber').removeClass('blinking');
+    }, 1000);
 };
 
 /*-----------Init Function----------------*/ 
