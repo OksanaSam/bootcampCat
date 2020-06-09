@@ -32,7 +32,7 @@
                 flex-direction: column;
                     .welcomeImage {
                         order: 1;
-                        width: 50%;
+                        // width: 50%;
                     }
                     p {
                         @include fontSize(25);
@@ -40,6 +40,11 @@
                         line-height: 3rem;
                     }
             }
+    }
+
+    .welcomeImage img {
+        width: 70%;
+        margin: 0 auto;
     }
     
     /* game page styles */

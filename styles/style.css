@@ -1269,7 +1269,6 @@ button:hover {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
-    width: 50%;
   }
   .welcomePage .welcomeMessage p {
     font-size: 25px;
@@ -1278,6 +1277,10 @@ button:hover {
         -ms-flex-order: 2;
             order: 2;
     line-height: 3rem;
+  }
+  .welcomeImage img {
+    width: 70%;
+    margin: 0 auto;
   }
   /* game page styles */
   .gamePage h2 {
