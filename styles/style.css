@@ -1280,9 +1280,9 @@ button:hover {
   }
   /* game page styles */
   .gamePage h2 {
-    font-size: 40px;
-    font-size: 4rem;
-    padding: 20px 0;
+    font-size: 35px;
+    font-size: 3.5rem;
+    padding: 15px 0;
   }
   .content {
     -webkit-box-orient: vertical;
@@ -1305,8 +1305,8 @@ button:hover {
     width: 100%;
   }
   .energyDisplay p {
-    font-size: 20px;
-    font-size: 2rem;
+    font-size: 18px;
+    font-size: 1.8rem;
   }
   .bottomSection {
     -ms-flex-wrap: wrap;

@@ -20,7 +20,7 @@ myApp.prehistory = 'Months of struggling, reading books and forums, solving tech
 myApp.cancelPrehistoryCode;
 
 // funny keywords related to our cohort to be randomly dispayed on screen
-myApp.keywords = ['ThreatenedSwan', 'calc(30 - 3)', 'orbitz', 'Marley', 'Riley', 'pineappleJuice', 'dank', 'survivor', 'cookies', 'gityourselvesabreak', 'sonOfJson', 'zoominplz', 'JS = magic', 'undefined', 'keepitdry', 'pizza+sushi',  'projectprojectproject', 'curlyboys', 'gridouttahere', 'gitoffyourlaptop', 'conCATenation', 'horizontaloverscroll', 'flexYESfloatNO'];
+myApp.keywords = ['ThreatenedSwan', 'calc(30 - 3)', 'orbitz', 'Marley', 'Riley', 'pineappleJuice', 'dank', 'survivor', 'cookies', 'gityourselfabreak', 'sonOfJson', 'zoominplz', 'JS = magic', 'undefined', 'keepitdry', 'pizza+sushi',  'projectproject', 'curlyboys', 'gridouttahere', 'gitoffyourlaptop', 'conCATenation', 'cohort27', 'flexYESfloatNO'];
 
 // reseting bootcamp cat object every time user starts a new game in order to keep the default property values 
 myApp.resetBootcampCat = () => {

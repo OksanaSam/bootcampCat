@@ -43,8 +43,8 @@
     
     /* game page styles */
     .gamePage h2 {
-        @include fontSize(40);
-        padding: 20px 0;
+        @include fontSize(35);
+        padding: 15px 0;
     }
 
     .content {
@@ -61,7 +61,7 @@
     }
 
     .energyDisplay p {
-        @include fontSize(20);
+        @include fontSize(18);
     }
 
     .bottomSection {
