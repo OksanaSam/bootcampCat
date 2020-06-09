@@ -32,7 +32,7 @@
                 flex-direction: column;
                     .welcomeImage {
                         order: 1;
-                        width: 70%;
+                        width: 50%;
                     }
                     p {
                         @include fontSize(25);
