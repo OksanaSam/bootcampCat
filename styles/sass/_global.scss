@@ -53,8 +53,7 @@ button {
     padding: 5px;
     margin: 0 auto;
     display: block;
-    &:hover,
-    &:focus {
+    &:hover { /* I don't give buttons focus as they have it by default */
         @include colors ($textColor, $primaryColor);
         opacity: 0.5;
         transition: all 0.3s ease-in-out;

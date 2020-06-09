@@ -902,7 +902,8 @@ button {
   display: block;
 }
 
-button:hover, button:focus {
+button:hover {
+  /* I don't give buttons focus as they have it by default */
   background-color: #457B9D;
   color: #ADE7F6;
   opacity: 0.5;
@@ -943,8 +944,8 @@ button:hover, button:focus {
 }
 
 .welcomePage .welcomeMessage .welcomeImage {
-  -ms-flex-preferred-size: 35%;
-      flex-basis: 35%;
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -1059,6 +1060,8 @@ button:hover, button:focus {
 
 .content .energyDisplay p {
   margin-bottom: 15px;
+  font-size: 25px;
+  font-size: 2.5rem;
 }
 
 .content .energyDisplay .updatedEnergy {
@@ -1177,6 +1180,8 @@ button:hover, button:focus {
 .bottomSection .messageBox {
   background-color: #E3E9FB;
   color: #0E89E4;
+  font-size: 25px;
+  font-size: 2.5rem;
   width: 50%;
   min-height: 150px;
   height: -webkit-fit-content;
@@ -1203,6 +1208,8 @@ button:hover, button:focus {
 
 .bottomSection .keywords {
   width: 25%;
+  font-size: 25px;
+  font-size: 2.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1222,11 +1229,27 @@ button:hover, button:focus {
   html {
     font-size: 60%;
   }
+  /* social ul styles */
+  .social {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: static;
+    margin-top: 60px;
+  }
 }
 
 @media (max-width: 768px) {
   .wrapper {
     width: 90%;
+  }
+  body {
+    font-size: 15px;
+    font-size: 1.5rem;
   }
   /* welcome page styles */
   .welcomePage {
@@ -1255,18 +1278,6 @@ button:hover, button:focus {
             order: 2;
     line-height: 3rem;
   }
-  /* social ul styles */
-  .social {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    position: static;
-    margin-top: 60px;
-  }
   /* game page styles */
   .gamePage h2 {
     font-size: 40px;
@@ -1293,6 +1304,10 @@ button:hover, button:focus {
   .content .catImage {
     width: 100%;
   }
+  .energyDisplay p {
+    font-size: 20px;
+    font-size: 2rem;
+  }
   .bottomSection {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -1309,11 +1324,15 @@ button:hover, button:focus {
         -ms-flex-order: 1;
             order: 1;
     min-height: 200px;
+    font-size: 20px;
+    font-size: 2rem;
   }
   .bottomSection .keywords {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
     width: 50%;
+    font-size: 20px;
+    font-size: 2rem;
   }
 }

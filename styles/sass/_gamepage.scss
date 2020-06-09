@@ -17,6 +17,7 @@
             @include flex(column nowrap, space-between, center);
                 p {
                     margin-bottom: 15px;
+                    @include fontSize(25);
                 }
                 .updatedEnergy {
                     color: $accentColor;
@@ -70,6 +71,7 @@
         }
         .messageBox {
             @include colors ($thirdColor, $secondaryColor);
+            @include fontSize(25);
             width: 50%;
             min-height: 150px;
             height: fit-content;
@@ -81,6 +83,7 @@
         }
         .keywords {
             width: 25%;
+            @include fontSize(25);
             @include flex(row nowrap, center, stretch);
         }
 }
