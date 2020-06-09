@@ -886,7 +886,7 @@ body {
 }
 
 .welcomePage {
-  height: 95vh;
+  height: 100vh;
   padding-top: 100px;
 }
 
@@ -919,6 +919,7 @@ body {
 .welcomePage .welcomeMessage p {
   font-size: 30px;
   font-size: 3rem;
+  padding-top: 20px;
   text-align: left;
   -ms-flex-preferred-size: 60%;
       flex-basis: 60%;
@@ -949,10 +950,14 @@ body {
 
 .social a {
   color: #457B9D;
+  font-size: 30px;
+  font-size: 3rem;
 }
 
 .social a:hover {
   color: #0E89E4;
+  font-size: 35px;
+  font-size: 3.5rem;
 }
 
 .visually-hidden {
@@ -981,7 +986,7 @@ footer {
 
 .gamePage {
   display: none;
-  height: 95vh;
+  height: 100vh;
 }
 
 .gamePage h2 {
@@ -1024,6 +1029,10 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.content .energyDisplay p {
+  margin-bottom: 15px;
 }
 
 .content .energyDisplay .updatedEnergy {
@@ -1084,11 +1093,16 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.content .buttonSection button {
+  margin-top: 15px;
 }
 
 .disabled {
@@ -1184,7 +1198,7 @@ button {
   display: block;
 }
 
-button:hover {
+button:hover, button:focus {
   background-color: #457B9D;
   color: #ADE7F6;
   opacity: 0.5;
@@ -1200,9 +1214,6 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  html {
-    font-size: 56.25%;
-  }
   .wrapper {
     width: 90%;
   }
@@ -1225,13 +1236,12 @@ button:hover {
             order: 1;
   }
   .welcomePage .welcomeMessage p {
-    font-size: 20px;
-    font-size: 2rem;
+    font-size: 25px;
+    font-size: 2.5rem;
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
     line-height: 3rem;
-    height: 50%;
   }
   .social {
     -webkit-box-orient: horizontal;
@@ -1242,7 +1252,7 @@ button:hover {
         -ms-flex-pack: center;
             justify-content: center;
     position: static;
-    padding-top: 80px;
+    margin-top: 60px;
   }
   .content {
     -webkit-box-orient: vertical;

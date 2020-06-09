@@ -19,11 +19,11 @@ myApp.prehistory = 'Months of struggling, reading books and forums, solving tech
 // cancel code for clearing interval for appearing text on welcome page  
 myApp.cancelPrehistoryCode;
 
-// create an array of funny keywords related to our cohort to be randomly dispayed on screen
+// creating an array of funny keywords related to our cohort to be randomly dispayed on screen
 myApp.keywords = ['ThreatenedSwan', 'calc(30 - 3)', 'orbitz', 'Marley', 'Riley', 'pineappleJuice', 'dank', 'survivor', 'cookies', 'gityourselvesabreak', 'sonOfJson', 'zoominplz', 'JS = magic', 'undefined', 'keepitdry', 'pizza+sushi',  'projectprojectproject', 'curlyboys', 'gridouttahere', 'gitoffyourlaptop', 'conCATenation', 'horizontaloverscroll', 'flexYESfloatNO'];
 
 /*-----------Helper Functions----------------*/ 
-// a function to reset bootcamp cat object every time user starts a new game in order to keep the default property values 
+// reseting bootcamp cat object every time user starts a new game in order to keep the default property values 
 myApp.resetBootcampCat = () => {
     myApp.bootcampCat = {
         energyLevel: 100,
@@ -44,7 +44,7 @@ myApp.showPrehistory = () => {
     }
 }
 
-// creating a function to format time from numbers to strings allowing for zeros to appear before digits
+// formatting time from numbers to strings allowing for zeros to appear before digits
 myApp.formatTime = (int) => {
     const tempString = String(int);
     return tempString.length !== 1 ? tempString : `0${tempString}`;
@@ -80,7 +80,7 @@ myApp.updateTicks = () => {
     };
 };
 
-// a function to update energy and display it on the screen
+// updating energy and displaying it on the screen
 myApp.updateEnergy = () => {
     // energy is automatically decreasing by 10 points every 5 seconds 
     if (myApp.ticks % 5 === 0 && myApp.ticks !== 300) {
@@ -95,25 +95,7 @@ myApp.updateEnergy = () => {
     $('.energyNumber').html(`${myApp.bootcampCat.energyLevel}`);
 };
 
-// a function to update video based on energy and hunger level
-myApp.updateVideo = () => {
-    if (!myApp.isGameRunning || myApp.isMessageFrozen) return;
-    if (myApp.bootcampCat.energyLevel > 100) {
-        $('.appendedMessage').html(`Coffee Junkie`);
-    } else if (myApp.bootcampCat.energyLevel >= 80 && myApp.bootcampCat.hungerLevel <= 30) {
-        $('.appendedMessage').html(`Cat is productive and efficient`);
-    } else if (myApp.bootcampCat.energyLevel < 80 && myApp.bootcampCat.energyLevel >= 50) {
-        $('.appendedMessage').html(`Cat might need some coffee to stay active`);
-    } else if (myApp.bootcampCat.energyLevel > 20 ) {
-        $('.appendedMessage').html('Cat really needs some boost of energy');
-    } else {
-        $('.appendedMessage').html(`Cat's energy is critically low, it cannot study`);
-    }
-};
-
-
-
-// a function to update hunger level and display it on the screen
+// updating hunger level and display it on the screen
 myApp.updateHunger = () => {
     // the hunger level is automatically increasing by 10 points every 10 seconds 
     if (myApp.ticks % 10 === 0 && myApp.ticks !== 300) {
@@ -127,10 +109,32 @@ myApp.updateHunger = () => {
     $('.hungerNumber').html(`${myApp.bootcampCat.hungerLevel}`);
 };
 
-// a function to check lower und upper energy thresholds and add relevant classes to alert user once thresholds are met
+// updating messages based on energy and hunger level
+myApp.updateVideo = () => {
+    if (!myApp.isGameRunning || myApp.isMessageFrozen) return;
+    if (myApp.bootcampCat.energyLevel <= 30 && myApp.bootcampCat.hungerLevel >= 70) {
+        $('.appendedMessage').html(`Energy and food-deprived cat considers finding a better buddy.`);
+    } else if (myApp.bootcampCat.energyLevel <= 30 && myApp.bootcampCat.hungerLevel) {
+        $('.appendedMessage').html(`The cat is struggling to keep its eyes open.`);
+    } else if (myApp.bootcampCat.energyLevel && myApp.bootcampCat.hungerLevel >= 70) {
+        $('.appendedMessage').html(`It's shocking to see you keeping your cool while your cat hasn't eaten for more than a minute!`);
+    } else if (myApp.bootcampCat.energyLevel <= 40 && myApp.bootcampCat.hungerLevel) {
+        $('.appendedMessage').html(`Your cat is yawning so cute... Wait, maybe it needs some boost?`);
+    } else if (myApp.bootcampCat.energyLevel && myApp.bootcampCat.hungerLevel >= 60) {
+        $('.appendedMessage').html(`Is that stomach growl?`);
+    } else if (myApp.bootcampCat.energyLevel <= 60 && myApp.bootcampCat.hungerLevel >= 50) {
+        $('.appendedMessage').html(`Your cat keeps working but now and then is giving you a heavy look.`);
+    } else if (myApp.bootcampCat.energyLevel >= 100 && myApp.bootcampCat.hungerLevel) {
+        $('.appendedMessage').html(`You are turning your cat into a coffee junkie!`);
+    } else if (myApp.bootcampCat.energyLevel && myApp.bootcampCat.hungerLevel >= 0) {
+        $('.appendedMessage').html(`Your cat is efficient, focused and productive.`);
+    }
+};
+
+// checking lower und upper energy thresholds and add relevant classes to alert user once thresholds are met
 myApp.reactToEnergyLevel = () => {
     // once the energy level is hitting 20 or lower, make it blink on screen by adding a corresponding class
-    if (myApp.bootcampCat.energyLevel <= 20) {
+    if (myApp.bootcampCat.energyLevel <= 30) {
         $('.energyNumber').addClass('blinking');
     // if it does not meet the above condition, remove the added class
     } else {
@@ -174,7 +178,7 @@ myApp.handleBoost = () => {
     myApp.reactToEnergyLevel();
 };
 
-// a function to update hunger level based on user interaction 
+// updating hunger level based on user interaction 
 myApp.handleFeed = () => {
     if (!myApp.isGameRunning) return;
 
@@ -189,10 +193,10 @@ myApp.handleFeed = () => {
     // call the function to check hunger thresholds after user input and alert user once thresholds are met
 };
 
-// a function to update the energy level based on user interaction 
+// updating the energy level based on user interaction 
 myApp.handlePraise = () => {
+    // run it only if the game is running
     if (!myApp.isGameRunning) return;
-
     // increse the energy level by 10 points if user clicks the Praise button
     myApp.bootcampCat.energyLevel += 10;
     // prevent the energy level from going above 150
@@ -203,6 +207,21 @@ myApp.handlePraise = () => {
     $('.energyNumber').html(`${myApp.bootcampCat.energyLevel}`);
     // call the function to check energy thresholds after user input and alert user once thresholds are met
     myApp.reactToEnergyLevel();
+};
+
+// adding a funny message once user clicks on Sleep button 
+myApp.handleSleep = () => {
+    // run it only if the game is running and the Sleep button is not disabled
+    if (!myApp.isGameRunning || $('.sleep').hasClass('disabled')) return;
+    // preventing other messages from appearing so that user can read the funny message
+    myApp.isMessageFrozen = true;
+    $('.appendedMessage').html(`Are you kidding me? Is it even legal during the bootcamp?`);
+    // disabling the Sleep button so that the user can click it only once, it stays disabled even after restart
+    $('.sleep').addClass('disabled');
+    // unfreezing other messages after 3 seconds
+    setTimeout(() => {
+        myApp.isMessageFrozen = false;
+    }, 3000);
 };
 
 /*-----------Start / Restart / End Game----------------*/ 
@@ -218,7 +237,7 @@ myApp.startNewGame = () => {
         // start picking random keywords every 4 seconds
         setInterval(myApp.getRandomKeyword, 4000);
     };
-    // once the user clicks to start or restart the game, variable is set to true which is triggering the ticks update above)
+    // once the user clicks to start or restart the game, variable is set to true which is triggering the ticks update above
     myApp.isGameRunning = true;
     // user is given 5 minutes to play
     myApp.ticks = 300;
@@ -231,29 +250,19 @@ myApp.startNewGame = () => {
     myApp.updateHunger();
 };
 
-myApp.handleSleep = () => {
-    if (!myApp.isGameRunning || $('.sleep').hasClass('disabled')) return;
-    
-    myApp.isMessageFrozen = true;
-    $('.appendedMessage').html(`Are you kidding me? Is it even legal during the bootcamp?`);
-    $('.sleep').addClass('disabled');
-    setTimeout(() => {
-        myApp.isMessageFrozen = false;
-    }, 3000);
-}
-
-// a function to end the game, which is called once the set amount of ticks elapses, isGameRunning is set to false to prevent ticks from updating
+// ending the game, called once the set amount of ticks elapses, isGameRunning is set to false to prevent ticks from updating
 myApp.endGame = () => {
     myApp.isGameRunning = false;
     setTimeout(() => myApp.updateTime(), 1000);
-    $('.catImage').html(`<img src="assets/noun_Cat calculator_232259.png" alt="A cat typing on its laptop, a representation of a developer cat">`);
-    $('.appendedMessage').html(`Congrats! You made it through! Assignment is finished and pushed to GitHub. Time for a celebratory cat treat and up to #bootcamp-help.`);
+    $('.catImage').html(`<img src="assets/staticCat.jpg" alt="A cat typing on its laptop, a representation of a developer cat">`);
+    $('.appendedMessage').html(`Congrats, you made it through! Assignment has been pushed to GitHub. Time for a celebratory cat treat and up to #partyroom.`);
+    $('.energyNumber').removeClass('blinking');
 };
 
 /*-----------Init Function----------------*/ 
 myApp.init = () => {
     myApp.cancelPrehistoryCode = setInterval(myApp.showPrehistory, 30);
-     // add an event listener to come to the game screen and enable the game start
+     // add an event listener to load to the game screen and enable the game start
     $('.buttonDown').on('click', function(){
         // clear interval for appearing text on welcome page with cancel code 
         clearInterval(myApp.cancelPrehistoryCode);

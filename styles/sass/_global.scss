@@ -49,7 +49,7 @@ body {
 }
 
 .welcomePage {
-    height: 95vh;
+    height: 100vh;
     padding-top: 100px;
         h1 {
             font-family: $primaryFontFamily;
@@ -67,6 +67,7 @@ body {
                 }
                 p {
                     @include fontSize(30);
+                    padding-top: 20px;
                     text-align: left;
                     flex-basis: 60%;
                     line-height: 4rem;
@@ -86,12 +87,12 @@ body {
             padding: 10px;
         }
         a {
-            color: $textColor;  
-            // padding: 7px;
-            // border-radius: 50%;
+            color: $textColor;
+            @include fontSize(30);
                 &:hover {
                     // background-color: $textColor;
                     color: $secondaryColor;
+                    @include fontSize(35);
                 }
         }
 }
@@ -119,7 +120,7 @@ footer {
 
 .gamePage {
     display: none;
-    height: 95vh;
+    height: 100vh;
         h2 {
             font-family: $primaryFontFamily;
             text-transform: uppercase;
@@ -140,6 +141,9 @@ footer {
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+                p {
+                    margin-bottom: 15px;
+                }
                 .updatedEnergy {
                     color: red;
                 }
@@ -162,8 +166,11 @@ footer {
             width: 25%;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
+                button {
+                    margin-top: 15px;
+                }
         }
 }
 
@@ -211,7 +218,6 @@ footer {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            // overscroll-behavior: auto contain;
         }
 }
 
@@ -228,8 +234,8 @@ button {
     padding: 5px;
     margin: 0 auto;
     display: block;
-        &:hover {
-        // &:focus 
+        &:hover,
+        &:focus {
             @include colors ($textColor, $primaryColor);
             opacity: 0.5;
             transition: all 0.3s ease-in-out;
@@ -246,39 +252,33 @@ button {
 }
 
 @media(max-width: 768px) {
-    html {
-        font-size: 56.25%;
-    }
-
     .wrapper {
         width: 90%;
     }
 
-
-.welcomePage {
-    padding-top: 20px;
-        h1 {
-            @include fontSize(50);
-        }
-        .welcomeMessage {
-            flex-direction: column;
-                .welcomeImage {
-                    order: 1;
-                }
-                p {
-                    @include fontSize(20);
-                    order: 2;
-                    line-height: 3rem;
-                    height: 50%;
-                }
-        }
-}
+    .welcomePage {
+        padding-top: 20px;
+            h1 {
+                @include fontSize(50);
+            }
+            .welcomeMessage {
+                flex-direction: column;
+                    .welcomeImage {
+                        order: 1;
+                    }
+                    p {
+                        @include fontSize(25);
+                        order: 2;
+                        line-height: 3rem;
+                    }
+            }
+    }
 
     .social {
         flex-direction: row;
         justify-content: center;
         position: static;
-        padding-top: 80px;
+        margin-top: 60px;
     }
     
 
