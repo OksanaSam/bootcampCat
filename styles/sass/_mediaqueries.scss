@@ -32,12 +32,11 @@
                 flex-direction: column;
                     .welcomeImage {
                         order: 1;
-                        // width: 50%;
                     }
                     p {
-                        @include fontSize(25);
+                        @include fontSize(20);
                         order: 2;
-                        line-height: 3rem;
+                        line-height: 2.8rem;
                     }
             }
     }
