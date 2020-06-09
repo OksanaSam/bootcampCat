@@ -1015,6 +1015,7 @@ button:hover {
 .gamePage {
   display: none;
   height: 100vh;
+  margin-bottom: 15px;
 }
 
 .gamePage h2 {
@@ -1271,12 +1272,12 @@ button:hover {
             order: 1;
   }
   .welcomePage .welcomeMessage p {
-    font-size: 25px;
-    font-size: 2.5rem;
+    font-size: 20px;
+    font-size: 2rem;
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
-    line-height: 3rem;
+    line-height: 2.8rem;
   }
   .welcomeImage img {
     width: 55%;
@@ -1315,6 +1316,7 @@ button:hover {
   .bottomSection {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    padding-bottom: 10px;
   }
   .bottomSection .clock {
     width: 50%;
